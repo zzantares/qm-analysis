@@ -1,0 +1,560 @@
+#+TITLE: Reproducible science applied to artificial intelligence: a case story
+#+AUTHOR: Julio César Gutiérrez Muñoz
+
+#+LATEX_CLASS: report
+#+LATEX_HEADER: \usepackage{apacite}
+
+* Agradecimientos
+
+   Padres, Tutor, Institución y Conacyt.
+
+* Abstract
+
+   Investment strategies in the financial industry are a set of rules and
+   procedures designed to guide investors in the selection of an
+   investment portfolio. these strategies are categorized in passive and
+   active strategies. Passive management strategies are those in which
+   the investor buys and holds a position expecting to profit in the long
+   run by taking advantage of the natural market’s growth, meanwhile in
+   active management strategies because the investor thinks he could beat
+   the market’s growth he continuously open and closes positions
+   expecting to profit in the short term. However there’s a huge
+   challenge in active management, strategies with a rigid set of rules
+   will stop working at some point, the market’s conditions that exist at
+   any given time and that allows the investor to profit soon begin to
+   disappear; the market is constantly changing. Therefore it is
+   necessary create investment strategies that can adapt to the changing
+   nature of markets and learn to correct its parameters so that the
+   strategy stays profitable in the long run.  In this study we explore
+   the usage of artificial neural networks (ANN) as a basis for the
+   development of investment strategies that will allow them to adapt to
+   changing conditions in financial markets. We will focus our research
+   to verify the results obtained by Kara et al. 2011 in the article
+   “Predicting direction of stock price index movement using artificial
+   neural networks and support vector machines” using an open science
+   approach and to experiment with the application of ANN in stock price
+   indices over american markets like the Standard & Poor’s 500 (S&P500)
+   and the Índice de Precios y Cotizaciones (IPC).
+
+* Resumen
+
+   Las estrategias de inversión en el ámbito financiero son un conjunto
+   de reglas, comportamientos y procedimientos diseñados para orientar a
+   un inversor en la selección de una cartera de inversión, dichas
+   estrategias se dividen en pasivas y activas, siendo pasivas aquellas
+   en las que se compra un instrumento y se mantiene la posición
+   esperando generar una rentabilidad a largo plazo, mientras que en la
+   gestión activa se busca abrir y cerrar posiciones con frecuencia ya
+   que el inversor se siente con mejores habilidades de gestión que el
+   promedio de participantes en el mercado. Sin embargo existe un gran
+   reto en la gestión activa y es que las estrategias rígidas de gestión
+   no funcionan por mucho tiempo, las condiciones de mercado que existen
+   en un tiempo determinado y que permite generar una ganancia, pronto se
+   disuelven y desaparecen; el mercado es cambiante. Es necesario
+   entonces elaborar estrategias de inversión que se puedan adaptar a
+   cambios del mercado y aprendamos a corregir sus parámetros para que
+   ésta se mantenga rentable al paso del tiempo.  En este estudio
+   exploramos la utilización de redes neuronales artificiales (ANN) como
+   base para la elaboración de estrategias de inversión que les permitan
+   re-adaptarse a las condiciones cambiantes del mercado. Enfocaremos el
+   estudio a manera de comprobar los resultados obtenidos por Kara et
+   al. 2011 en el artículo “Predicting direction of stock price index
+   movement using artificial neural networks and support vector machines”
+   apoyando el movimiento open science y a experimentar la aplicación de
+   ANN sobre índices bursátiles de mercados americanos como el Standard &
+   Poor’s 500 (S&P500) y el Índice de Precios y Cotizaciones (IPC).
+
+
+* Introduction
+  #+begin_quote
+  Explica al lector qué va a leer, por qué debe leerlo, cuáles son los objetivos
+  y cómo está organizado el texto. Una buena introducción, predispone de buena
+  manera al lector.
+
+  + Cómo se llega al tema.
+  + De que se trata, es decir, qué se pretende hacer, en términos genéricos.
+  + Cuáles son los objetivos, tanto el general como los particulares. (¡Muy claros y precisos!).
+  + Cómo se ha organizado, en definitiva el texto, en pocas palabras, que encontrará el lector en cada uno de los capítulos.
+  #+end_quote
+
+  Performance of financial markets are often used as leading indicators
+  in the economy, when stock market indices reveal weakness in upward
+  movements there is a perception of fear among market participants and
+  reflect the views in the overall economy of a country, as markets
+  retrace we see a slowdown in the development of the economy and
+  possibly the beginnings of a recession, on the contrary when
+  participants in the market see confidence and strength in upward
+  market movements the reflection in the overall economy is positive as
+  business are growing.
+
+** TODO Importancia de desarrollo y evaluaciíon de estrategias para predecir mercados
+* Background
+** Marco teórico
+   #+begin_quote
+   Aquí se indican cuáles son los antecedentes teóricos y prácticos que se
+   relacionan con el trabajo a desarrollar, para darle mayor veracidad
+   científica.
+   #+end_quote
+
+*** Machine Learning
+
+    Machine Learning is a field of computer science
+    and a subset of artificial intelligence that gives computers the
+    ability to learn without being explicitly programmed (Koza et al,
+    1996), it is a discipline that explores the study and construction of
+    algorithms that can learn from and make predictions on data (Kohavi &
+    Provost, 1998). Machine learning tasks are typically classified into
+    two broad categories, supervised learning where there is a feedback
+    available to the learning system and unsupervised learning where there
+    is not.
+
+**** TODO Agregar algo sober reinforcement learning?
+
+     In the current section we discuss some of the algorithms applied in
+     supervised learning some of which were used in this study for the
+     forecasting of performance in financial markets.
+
+**** Artificial Neural Networks
+
+     Artificial neural networks (ANNs) are biologically inspired computer
+     programs designed to simulate the way in which the human brain processes
+     information. ANNs gather their knowledge by detecting the patterns and
+     relationships in data and learn (or are trained) through experience, not
+     from programming. An ANN is formed from hundreds of single units,
+     artificial neurons or processing elements, connected with coefficients
+     (weights), which constitute the neural structure and are organised in
+     layers. The power of neural computations comes from connecting neurons in a
+     network. Each processing element has weighted inputs, transfer function and
+     one output. The behavior of a neural network is determined by the transfer
+     functions of its neurons, by the learning rule, and by the architecture
+     itself. The weights are the adjustable parameters and, in that sense, a
+     neural network is a parameterized system. The weighted sum of the inputs
+     constitutes the activation of the neuron. The activation signal is passed
+     through transfer function to produce a single output of the
+     neuron. Transfer function introduces non-linearity to the network. During
+     training, the inter-unit connections are optimized until the error in
+     predictions is minimized and the network reaches the specified level of
+     accuracy (Agatonovic-Kustrin & Beresford, 2000).
+
+     #+CAPTION: Scheme of network of perceptrons (Nielsen, 2015)
+     #+LABEL: fig:ann-perceptrons
+     [[file:images/ann.png]]
+
+     Previous image from cite:Nielsen2015 that's it.
+
+**** SVM
+
+     Support vector machines (SVMs) are particular linear
+     classifiers which are based on the margin maximization principle. They
+     perform structural risk minimization, which improves the complexity of
+     the classifier with the aim of achieving excellent generalization
+     performance. The SVM accomplishes the classification task by
+     constructing, in a higher dimensional space, the hyperplane that
+     optimally separates the data into two categories (Adankon & Cheriet,
+     2009).
+
+     #+CAPTION: Unique and optimal hyperplane in a two-dimensional input space based on margin maximization (Adancon & Cheriet, 2009).
+     #+LABEL: fig:ann-perceptrons
+     [[file:images/svm.png]]
+
+**** Naive Bayes classifier
+
+     <Otros? Logistic Regression, Decision
+     Tree, Random Forests, KNN>
+
+*** Evaluating Artificial Intelligence Algorithms
+**** Precision, Recall, Accuracy
+**** Backtesting
+**** Bagging
+*** Evaluating Investment Strategies
+**** Walk-Forward analysis
+
+     First, some simple definitions regarding the walk‐forward analysis are
+     in order: In period.This is the chunk of historical data that will be
+     optimized.  Out period. This is the chunk of historical data that will
+     be evaluated using opti- 117 mized results from the adjacent in
+     period.  Fitness factor. This is the criterion used to determine the
+     “best” result, allowing us to select the optimized parameters.
+     Anchored/Unanchored test.This tells us whether or not the in period
+     start date shifts with time, or if the start date is always the same.
+
+**** Monte Carlo simulation and projections (P&L, Drawdown, Ruin risk)
+**** Statistic proves (hypothesis testing, t-student)
+*** Open Science
+
+    Open Science is the movement to make scientific research, data and their
+    dissemination available to any member of an inquiring society, from
+    professionals to citizens with the ultimate aim of making it easier to
+    publish and communicate scientific knowledge. As stated by Pontika, Knoth,
+    Cancellieri & Pearce (2015) it allows the reproduction of research findings,
+    enables transparency in the research methodology, increases the researcher’s
+    societal impact and saves money and time for both researchers and at
+    research institutions.  As of 2015, practices and techniques to be used in a
+    Open Science research weren’t wide spread; an effort by FOSTER (Facilitate
+    Open Science Training for European Research) an European Commission founded
+    project, started by developing an e-learning portal to support the training
+    of a wide range of stakeholders in Open Science and related areas. An open
+    science taxonomy was defined which included nine areas, these are: Open
+    Access, Open Data, Open Reproducible Research, Open Science Definition, Open
+    Science Evaluation, Open Science Guidelines, Open Science Policies, Open
+    Science Projects and Open Science Tools as shown below in figure [[fig:ost]].
+
+    #+CAPTION: Open Science Taxonomy (Knoth & Pontika, 2015).
+    #+LABEL: fig:ost
+    [[./images/open-science-taxonomy.png]]
+
+    Note that each of these terms was further divided into sub-topics to
+    better describe and classify the area.  In FOSTER (2015) general Open
+    Science practices for researchers were described, these are as
+    follows: Share protocols openly online and store data in the most open
+    format possible.  Use easily attainable software to facilitate
+    reproduction of results.  Publish preprints and be positive about open
+    peer review.  Cite open access versions of the literature, open data
+    and open code.  Acknowledge contributor roles in publications.
+    Translate research objects in as many languages as possible.  Openly
+    share research hypothesis and proposals, encouraging feedback.
+
+    Next we review the most relevant Open Science Areas for this work.
+
+**** Open Data
+
+     Open Data is online, free of cost, accessible data that can be used, reused
+     and distributed provided that the data source is attributed and shared
+     alike (FOSTER Consortium, 2015).  As research is more and more data-driven,
+     progress in scientific knowledge becomes intimately tighten to data
+     availability. Open Data policy enables researchers to make use of existing
+     knowledge in innovative and complementary ways. Needless to say, Open Data
+     is crucial to the reproducibility of scientific research.  Pfenninger,
+     DeCarolis, Hirth, Quoilin & Staffell, 2017 in "The importance of open data
+     and software" state that given the critical guidance that data provide to
+     decision makers, data should be made open and freely available to
+     researchers as well as the general public. They provided four specific
+     reasons for this:
+
+     Improved quality of science.  More effective collaboration across the
+     science-policy boundary.  Increased productivity through collaborative
+     burden sharing.  Profound relevance to societal debates.
+
+     Some of the key points noted by Pfenninger et al., 2017 is that Collecting
+     data, formulating models and writing code are resource-intensive. Research
+     funding is limited and researcher time is a scarce resource. Society as a
+     whole saves time and money if researchers avoid unnecessary duplication and
+     learn from one another. Individual researchers gain more time to spend on
+     pressing research questions rather than redundant work on model or dataset
+     development. Besides that, researchers are fallible human beings and errors
+     are inevitable under pressure to deliver. Such mistakes can have profound
+     implications. Finally, besides the practical considerations outlined above,
+     there remains the ethical argument that research funded by public money
+     should be available to the public in its entirety.
+
+**** Open Reproducible research
+
+     Open Reproducible research is the act of practicing Open Science and the
+     provision of offering to users free access to experimental elements for
+     research reproduction. This allows for reproducibility testing, the process of
+     validating that the reported research results can be obtained in an independent
+     experiment.  In this area, sharing laboratory research records, diaries,
+     journals and workbooks is encouraged, this should be offered free of cost and
+     with terms that allow reuse and redistribution of the recorded material. It is
+     expected as well that open source software is provided with terms that allow
+     dissemination and adaptation.  As indicated in Kluyver et al., 2016, several
+     papers have been published with supporting notebooks to reproduce the analysis,
+     or the creation of key plots. The detection of gravitational waves by the LIGO
+     experiment is one such: the researchers posted a notebook on their website
+     illustrating in detail how to filter and process the data to reveal the
+     signature of a distant black hole merger. Others quickly made this available
+     through Binder (a tool for sharing live notebooks), allowing anyone to
+     replicate the analysis even without downloading or installing anything. Other
+     papers published in fields from geology to genetics to computer science have
+     used notebooks as supporting material.
+
+***** Jupyter Notebook
+
+      The Jupyter notebook is an open-source, browser-based tool functioning as
+      a virtual lab notebook to support workflows, code, data, and
+      visualizations detailing the research process. These notebooks can live in
+      online repositories and provide connections to research objects such as
+      datasets, code, methods documents, workflows, and publications that reside
+      elsewhere (Randles, Pasquetto, Golshan & Borgman, 2017).  Notebooks are
+      designed to support the workflow of scientific computing, from interactive
+      exploration to publishing a detailed record of computation. The code in a
+      notebook is organised into cells, chunks which can be individually
+      modified and run. The output from each cell appears directly below it and
+      is stored as part of the document. However, whereas the direct output in
+      most shells can only be text, notebooks can include rich output such as
+      plots, formatted mathematical equations, and even interactive controls and
+      graphics (Kluyver et al., 2016).
+
+      #+CAPTION: Jupyter notebook screenshot (as retrieved from jupyter.org)
+      #+LABEL: fig:jn-screen
+      [[./images/jupyter-notebook.png]]
+
+      Jupyter notebooks are a medium to make science more open. As stated by Randles
+      et al., 2017 on their study of 91 publications in the Astrophysics Data System,
+      approximately 40% of the publications, linked to repositories with code, data
+      and reproducibility of the research on jupyter notebooks.  Notebooks also fit
+      well into novel publishing paradigms, such as post publication review. Digital
+      objects such as GitHub repositories, which may contain notebooks, and blog
+      posts, which may be made from notebooks, can now be archived and given
+      permanent DOI references, making it practical to cite them in other
+      publications (Kluyver et al., 2016).
+
+
+***** Org mode
+
+      Org mode is a tool available for the Emacs text editor that in the same
+      vein as Jupyter Notebooks, allows interaction of text content with code.
+
+      Org is a mode for keeping notes, maintaining TODO lists, and project
+      planning with a fast and effective plain-text system. It also is an
+      authoring system with unique support for literate programming and
+      reproducible research. cite:Dominik2018
+
+      Org is implemented on top of Outline mode, which makes it possible to keep
+      the content of large files well structured. Visibility cycling and
+      structure editing help to work with the tree. Tables are easily created
+      with a built-in table editor. Plain text URL-like links connect to
+      websites, emails, Usenet messages, BBDB entries, and any files related to
+      the projects
+
+      #+CAPTION: Org outline screenshot (as retrieved from orgmode.org)
+      #+LABEL: fig:org-screen
+      [[./images/org-sample.png]]
+
+      Org files can serve as a single source authoring system with export to
+      many different formats such as HTML, LATEX, Open Document, and
+      Markdown. New export backends can be derived from existing ones, or
+      defined from scratch.
+
+      Org files can include source code blocks, which makes Org uniquely suited
+      for authoring technical documents with code examples. Org source code
+      blocks are fully functional; they can be evaluated in place and their
+      results can be captured in the file. This makes it possible to create a
+      single file reproducible research compendium. cite:Dominik2018
+
+      #+CAPTION: Org source code blocks cite:Schulte2011
+      #+LABEL: fig:org-source-block
+      [[./images/org-source-block.png]]
+
+** Formulation of the problem
+
+    #+begin_quote
+    Debe exponer el problema que da origen a su trabajo. Se debe incluir:
+
+    - Dónde emerge el problema o antecedente.
+    - La definición del problema. En esta parte se describirá el problema central
+      de la tesis y se indicará la manera general cómo se resolverá el mismo, así
+      como los métodos y/o técnicas a Representa un elemento fundamental en e
+      proceso de la investigación.
+    #+end_quote
+
+   In this work we explore the state of research reproducibility in artificial
+   intelligence. In specific we've identified the following problems:
+
+*** Open Science practices not fully adopted
+
+    This problem consist in the lack of application of open science practices to
+    the artificial intelligence & machine learning research. Several papers
+    publish models reporting good performance but data or a note book with the
+    code is not available, thus making the reproduction of research harder.
+
+*** Access to data used in research
+
+    This problem is associated to the fact that many of research papers
+    published do not provide easy access to data or in general the data used to
+    train the predictive or classification models.
+
+    In general, access to spreadsheets, CSV files, databases or tools to
+    generate the data are not available.
+
+*** Research paper does not clarify steps followed in research
+
+    Another problem identified in published research is that most of them do not
+    proper document the process followed in the research. Only general guidance
+    is provided but specific parameters involved in the algorithms, models and
+    data normalization are not provided.
+
+*** Artifact produced in research (model, code) are not available
+
+    As of today, tools like Jupyter Notebook allow us to write textual content
+    accompanied with inline executable code, as we saw in the previous section
+    research in astronomy and physics uses this tool to share research results
+    but the same can't be said for AI research. Numerical computing code can be
+    found in GitHub but code related to machine learning training models used
+    in research tends to not be shared.
+
+** Research hypothesis
+   #+begin_quote
+   Después de formular un problema, el investigador enuncia la hipótesis, que
+   orientará el desarrollo y permitirá llegar a conclusiones concretas del
+   proyecto que de inicia.
+   #+end_quote
+** General purpose
+
+   #+begin_quote
+   Se indicará el objetivo general y los objetivos particulares.
+   El objetivo general debe describir en forma completa lo que se desea lograr con el trabajo.
+   #+end_quote
+
+*** OG1
+
+    Provide evidence for the need to promote Open Science practices in Artificial
+    Intelligence research.
+
+*** Old OG1
+
+    Explore application of artificial intelligence techniques for investment
+    strategies in emerging financial markets.
+
+** Concrete purposes
+
+   #+begin_quote
+   Los objetivos particulares deben ser lo suficiente claros y específicos
+   (deben ser cuantitativos cuando sea necesario) para que sean evaluables al
+   término de la tesis. En esta parte se muestra que el tesista sabe con
+   claridad lo que va a realizar.
+   #+end_quote
+
+*** OE1
+
+    Identify tools that facilitate management of artificial intelligence research.
+
+*** OE2
+
+    Explore current usage of open science tools in Software Engineering and
+    Artificial Intelligence.
+
+** Justification
+
+   #+begin_quote
+   Esta parte incluye las razones académicas y prácticas que justifican la realización del proyecto.
+
+   Se pueden indicar las necesidades que se satisfacen, los beneficios que se
+   obtendrán y el impacto socio-económico del trabajo (quién será beneficiado si
+   se soluciona el problema), según sea el caso.
+   #+end_quote
+
+   In computer science, often research papers offer analysis or improvement over
+   existing algorithms, it is natural that science exploration in this area is
+   reproducible since the improvement over the algorithm is discussed in the
+   article to a great level of detail.
+
+   However, building intuition for learning algorithms used in artificial
+   intelligence is only easy when applied to a low number of features.
+   Complexity of the computations increase as features used in the model
+   increase (e.g. using ANN with a high number of layers, RNNs or other
+   sophisticated algorithms like SVM in higher-dimensional spaces).
+
+*** TODO complete the justification
+
+    For this reason, it is necessary to guarantee reproducibility of research
+    since model performance
+
+* State of the art
+  #+begin_quote
+  Base teórica sobre la que se sustenta la tesis, o la cual se rebate en el
+  desarrollo posterior en el escrito, y que forma parte introductoria del mismo.
+  Este capítulo es fundamental para explicar las aportaciones al conocimiento que
+  realiza la tesis al estado del conocimiento actual
+  #+end_quote
+
+** Related Work
+   #+begin_quote
+   Esta parte incluye la revisión (bibliográfica o de campo) de las soluciones
+   que se han desarrollado con anterioridad y la efectividad de las mismas, así
+   como productos comerciales y/o experimentales similares al que se va a
+   proponer en el trabajo de tesis.
+
+   Por cada trabajo relacionado se espera una redacción máxima de media cuartilla.
+   #+end_quote
+
+** Comparative analysis
+
+   #+begin_quote
+   Discusión y análisis a profundidad de los trabajos que tienen mayor relación con
+   el problema a resolver, con la finalidad de justificar el desarrollo que se
+   pretende.
+   #+end_quote
+
+* Research Methodology
+  #+begin_quote
+  En este capítulo se presenta el desarrollo del trabajo siguiendo rigurosamente la metodología antes indicada.
+
+  Esta parte incluye la descripción de cada una de las etapas del desarrollo de
+  la tesis y la calendarización de las mismas mediante una gráfica de barras.
+
+  La asignación de tiempo a cada etapa debe tomar en cuenta la cantidad de
+  trabajo a realizar y el tiempo efectivo disponible por el tesista.
+
+  Esta calendarización será utilizada para evaluar el avance del tesista.
+
+  Será necesario precisar las actividades a desarrollar en otras instituciones, si
+  se diera el caso.
+  #+end_quote
+
+** Reproduce Original Paper
+** Apply Original method in new markets
+** Optimize different parameters in the original model
+** Measure and Control in all the cases
+* Experiment Results
+* Results Discussion
+  #+begin_quote
+  Presentar un análisis de los datos obtenidos al aplicar el producto mediante
+  el uso de algún método empírico, incluyendo premisas, condiciones de pruebas y
+  pruebas de concepto
+  #+end_quote
+* Conclusions
+  #+begin_quote
+  Las conclusiones deben resumir las aportaciones que se realizaron mediante la tesis.
+
+  Las conclusiones surgen de:
+  + El nivel en que se alcanzaron los objetivos (y si no se lograron al 100%, se debe indicar el por qué).
+  + Las observaciones particulares respecto de la metodología empleada.
+  + Consideraciones respecto de la bibliografía disponible.
+  + La propia percepción del mundo del autor.
+  + Será necesario precisar las actividades a desarrollar en otras instituciones, si se diera el caso.
+  + Se debe tener presente que las conclusiones siempre deben ser tales (respecto
+    de lo que se hizo), y deben estar argumentadas, es decir, se deben sostener en
+    el trabajo que se ha escrito
+  #+end_quote
+
+** Going over research questions again
+** Lessons learned
+* References
+Kara, Yakup & Boyacioglu, Melek & Baykan,
+Omer. (2011). Predicting direction of stock price index movement using
+artificial neural networks and support vector machines: The sample of
+the Istanbul Stock Exchange. Expert Systems with
+Applications. 38. 5311-5319. 10.1016/j.eswa.2010.10.027.  Sujin Pyo,
+Jaewook Lee, Mincheol Cha, Huisu Jang. (2017). Predictability of
+machine learning techniques to forecast the trends of market index
+prices: Hypothesis testing for the Korean stock markets.  Kevin
+J. Davey. Building winning algorithmic trading systems. (2014). Wiley.
+
+* Anexos y Apéndices
+** Anexo
+   #+begin_quote
+   Secciones relativamente independientes que ayudan a una mejor comprensión de la
+   tesis y que permiten conocer más a fondo aspectos específicos que por su
+   longitud o su naturaleza no conviene tratar dentro del cuerpo de la tesis.
+
+   Los anexos de la tesis incluirán material de apoyo a los capítulos.
+
+   El material susceptible de incluir en los anexos es aquel que no es necesario
+   leer para entender la tesis, pero que aporta evidencia documental estrictamente
+   necesaria para demostrar la solidez del trabajo.
+   #+end_quote
+
+** Apendice
+   #+begin_quote
+   Raw data, instalation recipes, how to access db.
+
+   Es una sección, también ubicada generalmente al final del texto pero cuya
+   función es importante para la comprensión del texto principal.
+   #+end_quote
+
+
+* Finals Test Section
+
+bibliographystyle:apacite
+bibliography:main.bib
