@@ -3,6 +3,8 @@
 
 #+LATEX_CLASS: report
 #+LATEX_HEADER: \usepackage{apacite}
+#+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=.,citecolor=.,urlcolor=.}
+
 
 * Agradecimientos
 
@@ -67,14 +69,14 @@
 
 * Introduction
   #+begin_quote
-  Explica al lector qué va a leer, por qué debe leerlo, cuáles son los objetivos
-  y cómo está organizado el texto. Una buena introducción, predispone de buena
+  Explica al lector qué va a leer, por qué debe leerlo, cuáles son los objetivos
+  y cómo está organizado el texto. Una buena introducción, predispone de buena
   manera al lector.
 
-  + Cómo se llega al tema.
-  + De que se trata, es decir, qué se pretende hacer, en términos genéricos.
-  + Cuáles son los objetivos, tanto el general como los particulares. (¡Muy claros y precisos!).
-  + Cómo se ha organizado, en definitiva el texto, en pocas palabras, que encontrará el lector en cada uno de los capítulos.
+  + Cómo se llega al tema.
+  + De que se trata, es decir, qué se pretende hacer, en términos genéricos.
+  + Cuáles son los objetivos, tanto el general como los particulares. (¡Muy claros y precisos!).
+  + Cómo se ha organizado, en definitiva el texto, en pocas palabras, que encontrará el lector en cada uno de los captítulos.
   #+end_quote
 
   Performance of financial markets are often used as leading indicators
@@ -89,24 +91,23 @@
 
 ** TODO Importancia de desarrollo y evaluaciíon de estrategias para predecir mercados
 * Background
-** Marco teórico
+** Conceptual framework
    #+begin_quote
-   Aquí se indican cuáles son los antecedentes teóricos y prácticos que se
+   Aquí se indican cuáles son los antecedentes teóricos y prácticos que se
    relacionan con el trabajo a desarrollar, para darle mayor veracidad
-   científica.
+   científica.
    #+end_quote
 
 *** Machine Learning
 
-    Machine Learning is a field of computer science
-    and a subset of artificial intelligence that gives computers the
-    ability to learn without being explicitly programmed (Koza et al,
-    1996), it is a discipline that explores the study and construction of
-    algorithms that can learn from and make predictions on data (Kohavi &
-    Provost, 1998). Machine learning tasks are typically classified into
-    two broad categories, supervised learning where there is a feedback
-    available to the learning system and unsupervised learning where there
-    is not.
+    Machine Learning is a field of computer science and a subset of artificial
+    intelligence that gives computers the ability to learn without being
+    explicitly programmed cite:Koza1996, it is a discipline that explores the
+    study and construction of algorithms that can learn from and make
+    predictions on data cite:Kohavi1998. Machine learning tasks are typically
+    classified into two broad categories, supervised learning where there is a
+    feedback available to the learning system and unsupervised learning where
+    there is not.
 
 **** TODO Agregar algo sober reinforcement learning?
 
@@ -134,33 +135,31 @@
      neuron. Transfer function introduces non-linearity to the network. During
      training, the inter-unit connections are optimized until the error in
      predictions is minimized and the network reaches the specified level of
-     accuracy (Agatonovic-Kustrin & Beresford, 2000).
+     accuracy cite:Agatonovic-Kustrin2000.
 
-     #+CAPTION: Scheme of network of perceptrons (Nielsen, 2015)
+     #+CAPTION: Scheme of network of perceptrons cite:Nielsen2015
      #+LABEL: fig:ann-perceptrons
      [[file:images/ann.png]]
 
-     Previous image from cite:Nielsen2015 that's it.
-
 **** SVM
 
-     Support vector machines (SVMs) are particular linear
-     classifiers which are based on the margin maximization principle. They
-     perform structural risk minimization, which improves the complexity of
-     the classifier with the aim of achieving excellent generalization
-     performance. The SVM accomplishes the classification task by
-     constructing, in a higher dimensional space, the hyperplane that
-     optimally separates the data into two categories (Adankon & Cheriet,
-     2009).
+     Support vector machines (SVMs) are particular linear classifiers which are
+     based on the margin maximization principle. They perform structural risk
+     minimization, which improves the complexity of the classifier with the aim
+     of achieving excellent generalization performance. The SVM accomplishes the
+     classification task by constructing, in a higher dimensional space, the
+     hyperplane that optimally separates the data into two categories
+     cite:Adankon2009.
 
-     #+CAPTION: Unique and optimal hyperplane in a two-dimensional input space based on margin maximization (Adancon & Cheriet, 2009).
+     #+CAPTION: Unique and optimal hyperplane in a two-dimensional input space based on margin maximization cite:Adankon2009.
      #+LABEL: fig:ann-perceptrons
      [[file:images/svm.png]]
 
 **** Naive Bayes classifier
 
-     <Otros? Logistic Regression, Decision
-     Tree, Random Forests, KNN>
+     #+begin_quote
+     Otros? Logistic Regression, Decision Tree, Random Forests, KNN?
+     #+end_quote
 
 *** Evaluating Artificial Intelligence Algorithms
 **** Precision, Recall, Accuracy
@@ -199,7 +198,7 @@
     Science Evaluation, Open Science Guidelines, Open Science Policies, Open
     Science Projects and Open Science Tools as shown below in figure [[fig:ost]].
 
-    #+CAPTION: Open Science Taxonomy (Knoth & Pontika, 2015).
+    #+CAPTION: Open Science Taxonomy cite:Pontika2015.
     #+LABEL: fig:ost
     [[./images/open-science-taxonomy.png]]
 
@@ -220,8 +219,8 @@
 
      Open Data is online, free of cost, accessible data that can be used, reused
      and distributed provided that the data source is attributed and shared
-     alike (FOSTER Consortium, 2015).  As research is more and more data-driven,
-     progress in scientific knowledge becomes intimately tighten to data
+     alike cite:FOSTER2015. As research is more and more data-driven, progress
+     in scientific knowledge becomes intimately tighten to data
      availability. Open Data policy enables researchers to make use of existing
      knowledge in innovative and complementary ways. Needless to say, Open Data
      is crucial to the reproducibility of scientific research.  Pfenninger,
@@ -235,38 +234,39 @@
      science-policy boundary.  Increased productivity through collaborative
      burden sharing.  Profound relevance to societal debates.
 
-     Some of the key points noted by Pfenninger et al., 2017 is that Collecting
-     data, formulating models and writing code are resource-intensive. Research
-     funding is limited and researcher time is a scarce resource. Society as a
-     whole saves time and money if researchers avoid unnecessary duplication and
-     learn from one another. Individual researchers gain more time to spend on
-     pressing research questions rather than redundant work on model or dataset
-     development. Besides that, researchers are fallible human beings and errors
-     are inevitable under pressure to deliver. Such mistakes can have profound
-     implications. Finally, besides the practical considerations outlined above,
-     there remains the ethical argument that research funded by public money
-     should be available to the public in its entirety.
+     Collecting data, formulating models and writing code are
+     resource-intensive. Research funding is limited and researcher time is a
+     scarce resource. Society as a whole saves time and money if researchers
+     avoid unnecessary duplication and learn from one another. Individual
+     researchers gain more time to spend on pressing research questions rather
+     than redundant work on model or dataset development
+     cite:Pfenninger2017. Besides that, researchers are fallible human beings
+     and errors are inevitable under pressure to deliver. Such mistakes can have
+     profound implications. Finally, besides the practical considerations
+     outlined above, there remains the ethical argument that research funded by
+     public money should be available to the public in its entirety.
 
 **** Open Reproducible research
 
      Open Reproducible research is the act of practicing Open Science and the
      provision of offering to users free access to experimental elements for
-     research reproduction. This allows for reproducibility testing, the process of
-     validating that the reported research results can be obtained in an independent
-     experiment.  In this area, sharing laboratory research records, diaries,
-     journals and workbooks is encouraged, this should be offered free of cost and
-     with terms that allow reuse and redistribution of the recorded material. It is
-     expected as well that open source software is provided with terms that allow
-     dissemination and adaptation.  As indicated in Kluyver et al., 2016, several
-     papers have been published with supporting notebooks to reproduce the analysis,
-     or the creation of key plots. The detection of gravitational waves by the LIGO
-     experiment is one such: the researchers posted a notebook on their website
-     illustrating in detail how to filter and process the data to reveal the
-     signature of a distant black hole merger. Others quickly made this available
-     through Binder (a tool for sharing live notebooks), allowing anyone to
-     replicate the analysis even without downloading or installing anything. Other
-     papers published in fields from geology to genetics to computer science have
-     used notebooks as supporting material.
+     research reproduction. This allows for reproducibility testing, the process
+     of validating that the reported research results can be obtained in an
+     independent experiment.  In this area, sharing laboratory research records,
+     diaries, journals and workbooks is encouraged, this should be offered free
+     of cost and with terms that allow reuse and redistribution of the recorded
+     material. It is expected as well that open source software is provided with
+     terms that allow dissemination and adaptation.  As indicated in Kluyver et
+     al., 2016, several papers have been published with supporting notebooks to
+     reproduce the analysis, or the creation of key plots. The detection of
+     gravitational waves by the LIGO experiment is one such: the researchers
+     posted a notebook on their website illustrating in detail how to filter and
+     process the data to reveal the signature of a distant black hole
+     merger. Others quickly made this available through Binder (a tool for
+     sharing live notebooks), allowing anyone to replicate the analysis even
+     without downloading or installing anything. Other papers published in
+     fields from geology to genetics to computer science have used notebooks as
+     supporting material.
 
 ***** Jupyter Notebook
 
@@ -275,30 +275,30 @@
       visualizations detailing the research process. These notebooks can live in
       online repositories and provide connections to research objects such as
       datasets, code, methods documents, workflows, and publications that reside
-      elsewhere (Randles, Pasquetto, Golshan & Borgman, 2017).  Notebooks are
-      designed to support the workflow of scientific computing, from interactive
-      exploration to publishing a detailed record of computation. The code in a
-      notebook is organised into cells, chunks which can be individually
-      modified and run. The output from each cell appears directly below it and
-      is stored as part of the document. However, whereas the direct output in
-      most shells can only be text, notebooks can include rich output such as
-      plots, formatted mathematical equations, and even interactive controls and
-      graphics (Kluyver et al., 2016).
+      elsewhere cite:Randles2017.  Notebooks are designed to support the
+      workflow of scientific computing, from interactive exploration to
+      publishing a detailed record of computation. The code in a notebook is
+      organised into cells, chunks which can be individually modified and
+      run. The output from each cell appears directly below it and is stored as
+      part of the document. However, whereas the direct output in most shells
+      can only be text, notebooks can include rich output such as plots,
+      formatted mathematical equations, and even interactive controls and
+      graphics cite:Kluyver2016.
 
-      #+CAPTION: Jupyter notebook screenshot (as retrieved from jupyter.org)
+      #+CAPTION: Jupyter notebook screenshot cite:Community2018
       #+LABEL: fig:jn-screen
       [[./images/jupyter-notebook.png]]
 
-      Jupyter notebooks are a medium to make science more open. As stated by Randles
-      et al., 2017 on their study of 91 publications in the Astrophysics Data System,
-      approximately 40% of the publications, linked to repositories with code, data
-      and reproducibility of the research on jupyter notebooks.  Notebooks also fit
-      well into novel publishing paradigms, such as post publication review. Digital
-      objects such as GitHub repositories, which may contain notebooks, and blog
-      posts, which may be made from notebooks, can now be archived and given
-      permanent DOI references, making it practical to cite them in other
-      publications (Kluyver et al., 2016).
-
+      Jupyter notebooks are a medium to make science more open.  A study in
+      which 91 publications in the Astrophysics Data System were analyzed,
+      approximately 40% of the publications, linked to repositories with code,
+      data and reproducibility of the research on jupyter notebooks
+      cite:Randles2017.  Notebooks also fit well into novel publishing
+      paradigms, such as post publication review. Digital objects such as GitHub
+      repositories, which may contain notebooks, and blog posts, which may be
+      made from notebooks, can now be archived and given permanent DOI
+      references, making it practical to cite them in other publications
+      cite:Kluyver2016.
 
 ***** Org mode
 
@@ -317,7 +317,7 @@
       websites, emails, Usenet messages, BBDB entries, and any files related to
       the projects
 
-      #+CAPTION: Org outline screenshot (as retrieved from orgmode.org)
+      #+CAPTION: Org outline screenshot cite:Dominik2018
       #+LABEL: fig:org-screen
       [[./images/org-sample.png]]
 
@@ -338,15 +338,15 @@
 
 ** Formulation of the problem
 
-    #+begin_quote
-    Debe exponer el problema que da origen a su trabajo. Se debe incluir:
+   #+begin_quote
+   Debe exponer el problema que da origen a su trabajo. Se debe incluir:
 
-    - Dónde emerge el problema o antecedente.
-    - La definición del problema. En esta parte se describirá el problema central
-      de la tesis y se indicará la manera general cómo se resolverá el mismo, así
-      como los métodos y/o técnicas a Representa un elemento fundamental en e
-      proceso de la investigación.
-    #+end_quote
+   - Dónde emerge el problema o antecedente.
+   - La definición del problema. En esta parte se describirá el problema central
+     de la tesis y se indicará la manera general cómo se resolverá el mismo, así
+     como los métodos y/o técnicas a Representa un elemento fundamental en el
+     proceso de la investigación.
+   #+end_quote
 
    In this work we explore the state of research reproducibility in artificial
    intelligence. In specific we've identified the following problems:
@@ -385,15 +385,16 @@
 
 ** Research hypothesis
    #+begin_quote
-   Después de formular un problema, el investigador enuncia la hipótesis, que
-   orientará el desarrollo y permitirá llegar a conclusiones concretas del
+   Despés de formular un problema, el investigador enuncia la hipótesis, que
+   orientará el desarrollo y permitirá llegar a conclusiones concretas del
    proyecto que de inicia.
    #+end_quote
 ** General purpose
 
    #+begin_quote
-   Se indicará el objetivo general y los objetivos particulares.
-   El objetivo general debe describir en forma completa lo que se desea lograr con el trabajo.
+   Se indicará el objetivo general y los objetivos particulares.  El objetivo
+   general debe describir en forma completa lo que se desea lograr con el
+   trabajo.
    #+end_quote
 
 *** OG1
@@ -409,9 +410,9 @@
 ** Concrete purposes
 
    #+begin_quote
-   Los objetivos particulares deben ser lo suficiente claros y específicos
+   Los objetivos particulares deben ser lo suficiente claros y específicos
    (deben ser cuantitativos cuando sea necesario) para que sean evaluables al
-   término de la tesis. En esta parte se muestra que el tesista sabe con
+   término de la tesis. En esta parte se muestra que el tesista sabe con
    claridad lo que va a realizar.
    #+end_quote
 
@@ -427,12 +428,32 @@
 ** Justification
 
    #+begin_quote
-   Esta parte incluye las razones académicas y prácticas que justifican la realización del proyecto.
+   Esta parte incluye las razones académicas y prácticas que justifican la
+   realización del proyecto.
 
    Se pueden indicar las necesidades que se satisfacen, los beneficios que se
-   obtendrán y el impacto socio-económico del trabajo (quién será beneficiado si
-   se soluciona el problema), según sea el caso.
+   obtendrán y el impacto socio-económico del trabajo (quién será beneficiado si
+   se soluciona el problema), según sea el caso.
    #+end_quote
+
+   Stock and futures trading literature emphasizes the importance of capital
+   management, that is, how much of the available capital is to be allocated in
+   a specific market position. Regardless of the probability of success of a
+   single position in the market the management strategy used could result in
+   higher profits over a series of trades.
+
+   However there's a need to provide a procedure for an unbiased comparative
+   over multiple position sizing strategies based in quantitative methods, more
+   over the need to resume the pros and cons over the most known position sizing
+   strategies is needed.
+
+   It is not enough to know what is the optimal position sizing strategy to use,
+   as a complete investment strategy would also consist of a reliable method to
+   detect and exploit market inefficiencies. Currently in the academic
+   literature, procedures for generating machine learning models that are able
+   to predict market trending direction exists. But over the various described
+   methods we need to find which one would be the best to use in addition to the
+   optimal position sizing strategy so that this two components maximize profit.
 
    In computer science, often research papers offer analysis or improvement over
    existing algorithms, it is natural that science exploration in this area is
@@ -445,17 +466,20 @@
    increase (e.g. using ANN with a high number of layers, RNNs or other
    sophisticated algorithms like SVM in higher-dimensional spaces).
 
-*** TODO complete the justification
+   It is necessary to guarantee reproducibility of research since model
+   performance varies depending on the data and parameters used it could be
+   the case that in the reproduction of the study, the final outcome is a
+   different result altogether. Open research reproducible tools can help to
+   overcome this problems.
 
-    For this reason, it is necessary to guarantee reproducibility of research
-    since model performance
+*** TODO complete the justification
 
 * State of the art
   #+begin_quote
-  Base teórica sobre la que se sustenta la tesis, o la cual se rebate en el
+  Base teórica sobre la que se sustenta la tesis, o la cual se rebate en el
   desarrollo posterior en el escrito, y que forma parte introductoria del mismo.
-  Este capítulo es fundamental para explicar las aportaciones al conocimiento que
-  realiza la tesis al estado del conocimiento actual
+  Este capítulo es fundamental para explicar las aportaciones al conocimiento
+  que realiza la tesis al estado del conocimiento actual
   #+end_quote
 
 ** Related Work
@@ -478,20 +502,125 @@
 
 * Research Methodology
   #+begin_quote
-  En este capítulo se presenta el desarrollo del trabajo siguiendo rigurosamente la metodología antes indicada.
+  En este capítulo se presenta el desarrollo del trabajo siguiendo rigurosamente
+  la metodología antes indicada.
 
-  Esta parte incluye la descripción de cada una de las etapas del desarrollo de
-  la tesis y la calendarización de las mismas mediante una gráfica de barras.
+  Esta parte incluye la descripción de cada una de las etapas del desarrollo de
+  la tesis y la calendarización de las mismas mediante una gráfica de barras.
 
-  La asignación de tiempo a cada etapa debe tomar en cuenta la cantidad de
+  La asignación de tiempo a cada etapa debe tomar en cuenta la cantidad de
   trabajo a realizar y el tiempo efectivo disponible por el tesista.
 
-  Esta calendarización será utilizada para evaluar el avance del tesista.
+  Esta calendarización será utilizada para evaluar el avance del tesista.
 
-  Será necesario precisar las actividades a desarrollar en otras instituciones, si
-  se diera el caso.
+  Será necesario precisar las actividades a desarrollar en otras instituciones,
+  si se diera el caso.
   #+end_quote
 
+** For the comparison of position sizing strategies
+   Now we will look to the procedure defined for the comparative of position
+   sizing strategies. As stated earlier, for an unbiased comparative we need to
+   test several runs of each single strategy in which the only variable
+   parameter is the capital compromised at each step in the execution of the
+   strategy. Nor the initial capital or the probability of success/failure
+   should be altered, that is, we are not taking into account the method by
+   which trade decisions are made but instead the method by which once a
+   decision is taken what could be the optimal capital to risk at each step in a
+   sequence of trades.
+
+   The specification of a baseline is needed, from which the performance of all
+   strategies will be measured, such baseline will consist of fixed parameters
+   in the simulation of a stochastic process. The number of positions in a
+   trading sequence, the probability of success of every trade in the sequence
+   and the initial capital at the beginning of the sequence is the same for all
+   the strategies.
+
+   Identified parameters are sumarized in ref:tbl:ptypes and described as
+   follows:
+
+   - *# Trades*:
+     Fixed parameter indicating the number of trades in the execution of the
+     strategy (length of the sequence).
+   - *P(W)*:
+     Fixed parameter indicating the probability of success of each trade in the
+     sequence.
+   - *P. Distribution*:
+     Fixed parameter indicating the probability distribution from which the
+     trade outcome is drawn.
+   - *Initial capital*:
+     Fixed parameter indicating the starting capital (amount) available at the
+     beginning of the sequence.
+   - *Position size*:
+     Variable parameter controlling the size of a single position in the trade
+     sequence.
+
+   #+CAPTION: Parameters in the base line for the strategies comparison
+   #+LABEL: tbl:ptypes
+   |-----------------+---------|
+   | Parameter       | Type    |
+   |-----------------+---------|
+   | # Trades        | Fixed   |
+   | P(W)            | Fixed   |
+   | P. Distribution | Fixed   |
+   | Initial capital | Fixed   |
+   | Position size   | Dynamic |
+   |-----------------+---------|
+
+
+*** TODO Escribir sobre metodo montecarlo, CDFs, Drawdown?
+*** TODO Mover parametros a una subsección?
+
+*** Strategies
+    There exist multiple variety in position sizing strategies, in this study
+    we look in to the most common ones as stated in cite:Bandy2011. Others are
+    just modified versions of the existent ones.
+
+**** Fixed position sizing
+     #+begin_src python
+     def fixed_bettor(funds, bet_size, plays):
+         current_funds = funds
+
+         bets = np.array([], dtype=int)
+         funds = np.array([], dtype=int)
+         drawdown = np.array([], dtype=float)
+
+         for single_bet in range(plays):
+             if current_funds > 0:
+                 if play():
+                     current_funds += bet_size
+                 else:
+                     current_funds -= bet_size
+
+             bets = np.append(bets, single_bet)  # Add bets to samples
+
+             # Add funds to samples
+             if current_funds < 0:
+                 current_funds = 0
+
+             funds = np.append(funds, current_funds)
+
+             # Add drawdown to samples
+             if current_funds > 0:
+                 dd = (current_funds - np.amax(funds)) / np.amax(funds)
+             else:
+                 dd = -1
+
+             drawdown = np.append(drawdown, np.amin([0, dd]))
+
+         plt.figure(0)
+         plt.plot(bets, funds)
+
+         plt.figure(1)
+         plt.plot(bets, drawdown)
+
+         return (current_funds, min(drawdown))
+     #+end_src
+**** Fixed percent position sizing
+**** Martingale position sizing
+**** Progressive position sizing
+**** Kelly formula
+**** D'Alembert position sizing
+**** Inverse D'Alembert
 ** Reproduce Original Paper
 ** Apply Original method in new markets
 ** Optimize different parameters in the original model
@@ -499,62 +628,53 @@
 * Experiment Results
 * Results Discussion
   #+begin_quote
-  Presentar un análisis de los datos obtenidos al aplicar el producto mediante
-  el uso de algún método empírico, incluyendo premisas, condiciones de pruebas y
+  Presentar un análisis de los datos obtenidos al aplicar el producto mediante
+  el uso de algún método empírico, incluyendo premisas, condiciones de pruebas y
   pruebas de concepto
   #+end_quote
 * Conclusions
   #+begin_quote
-  Las conclusiones deben resumir las aportaciones que se realizaron mediante la tesis.
+  Las conclusiones deben resumir las aportaciones que se realizaron mediante la
+  tesis.
 
   Las conclusiones surgen de:
-  + El nivel en que se alcanzaron los objetivos (y si no se lograron al 100%, se debe indicar el por qué).
-  + Las observaciones particulares respecto de la metodología empleada.
-  + Consideraciones respecto de la bibliografía disponible.
-  + La propia percepción del mundo del autor.
-  + Será necesario precisar las actividades a desarrollar en otras instituciones, si se diera el caso.
-  + Se debe tener presente que las conclusiones siempre deben ser tales (respecto
-    de lo que se hizo), y deben estar argumentadas, es decir, se deben sostener en
-    el trabajo que se ha escrito
+  - El nivel en que se alcanzaron los objetivos (y si no se lograron al 100%,
+    se debe indicar el por qué).
+  - Las observaciones particulares respecto de la metodología empleada.
+  - Consideraciones respecto de la bibliografía disponible.
+  - La propia percepción del mundo del autor.
+  - Será necesario precisar las actividades a desarrollar en otras
+    instituciones, si se diera el caso.
+  - Se debe tener presente que las conclusiones siempre deben ser tales (respecto
+    de lo que se hizo), y deben estar argumentadas, es decir, se deben sostener
+    en el trabajo que se ha escrito
   #+end_quote
 
 ** Going over research questions again
 ** Lessons learned
 * References
-Kara, Yakup & Boyacioglu, Melek & Baykan,
-Omer. (2011). Predicting direction of stock price index movement using
-artificial neural networks and support vector machines: The sample of
-the Istanbul Stock Exchange. Expert Systems with
-Applications. 38. 5311-5319. 10.1016/j.eswa.2010.10.027.  Sujin Pyo,
-Jaewook Lee, Mincheol Cha, Huisu Jang. (2017). Predictability of
-machine learning techniques to forecast the trends of market index
-prices: Hypothesis testing for the Korean stock markets.  Kevin
-J. Davey. Building winning algorithmic trading systems. (2014). Wiley.
+
+  bibliographystyle:apacite
+  bibliography:main.bib
 
 * Anexos y Apéndices
 ** Anexo
    #+begin_quote
-   Secciones relativamente independientes que ayudan a una mejor comprensión de la
-   tesis y que permiten conocer más a fondo aspectos específicos que por su
+   Secciones relativamente independientes que ayudan a una mejor comprensión de
+   la tesis y que permiten conocer más a fondo aspectos específicos que por su
    longitud o su naturaleza no conviene tratar dentro del cuerpo de la tesis.
 
-   Los anexos de la tesis incluirán material de apoyo a los capítulos.
+   Los anexos de la tesis incluirá material de apoyo a los capítulos.
 
    El material susceptible de incluir en los anexos es aquel que no es necesario
-   leer para entender la tesis, pero que aporta evidencia documental estrictamente
-   necesaria para demostrar la solidez del trabajo.
+   leer para entender la tesis, pero que aporta evidencia documental
+   estrictamente necesaria para demostrar la solidez del trabajo.
    #+end_quote
 
 ** Apendice
    #+begin_quote
    Raw data, instalation recipes, how to access db.
 
-   Es una sección, también ubicada generalmente al final del texto pero cuya
-   función es importante para la comprensión del texto principal.
+   Es una sección, también ubicada generalmente al final del texto pero cuya
+   función es importante para la comprensión del texto principal.
    #+end_quote
-
-
-* Finals Test Section
-
-bibliographystyle:apacite
-bibliography:main.bib
