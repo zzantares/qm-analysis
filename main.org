@@ -90,130 +90,267 @@
   business are growing.
 
 ** TODO Importancia de desarrollo y evaluaciíon de estrategias para predecir mercados
-* Background
-** Conceptual framework
+** Formulation of the problem
+
    #+begin_quote
-   Aquí se indican cuáles son los antecedentes teóricos y prácticos que se
-   relacionan con el trabajo a desarrollar, para darle mayor veracidad
-   científica.
+   Debe exponer el problema que da origen a su trabajo. Se debe incluir:
+
+   - Dónde emerge el problema o antecedente.
+   - La definición del problema. En esta parte se describirá el problema central
+     de la tesis y se indicará la manera general cómo se resolverá el mismo, así
+     como los métodos y/o técnicas a Representa un elemento fundamental en el
+     proceso de la investigación.
    #+end_quote
 
-*** Machine Learning
+   In this work we explore the state of research reproducibility in artificial
+   intelligence. In specific we've identified the following problems:
 
-    Machine Learning is a field of computer science and a subset of artificial
-    intelligence that gives computers the ability to learn without being
-    explicitly programmed cite:Koza1996, it is a discipline that explores the
-    study and construction of algorithms that can learn from and make
-    predictions on data cite:Kohavi1998. Machine learning tasks are typically
-    classified into two broad categories, supervised learning where there is a
-    feedback available to the learning system and unsupervised learning where
-    there is not.
+*** Open Science practices not fully adopted
 
-**** TODO Agregar algo sober reinforcement learning?
+    This problem consist in the lack of application of open science practices to
+    the artificial intelligence & machine learning research. Several papers
+    publish models reporting good performance but data or a note book with the
+    code is not available, thus making the reproduction of research harder.
 
-     In the current section we discuss some of the algorithms applied in
-     supervised learning some of which were used in this study for the
-     forecasting of performance in financial markets.
+*** Access to data used in research
 
-**** Artificial Neural Networks
+    This problem is associated to the fact that many of research papers
+    published do not provide easy access to data or in general the data used to
+    train the predictive or classification models.
 
-     Artificial neural networks (ANNs) are biologically inspired computer
-     programs designed to simulate the way in which the human brain processes
-     information. ANNs gather their knowledge by detecting the patterns and
-     relationships in data and learn (or are trained) through experience, not
-     from programming. An ANN is formed from hundreds of single units,
-     artificial neurons or processing elements, connected with coefficients
-     (weights), which constitute the neural structure and are organised in
-     layers. The power of neural computations comes from connecting neurons in a
-     network. Each processing element has weighted inputs, transfer function and
-     one output. The behavior of a neural network is determined by the transfer
-     functions of its neurons, by the learning rule, and by the architecture
-     itself. The weights are the adjustable parameters and, in that sense, a
-     neural network is a parameterized system. The weighted sum of the inputs
-     constitutes the activation of the neuron. The activation signal is passed
-     through transfer function to produce a single output of the
-     neuron. Transfer function introduces non-linearity to the network. During
-     training, the inter-unit connections are optimized until the error in
-     predictions is minimized and the network reaches the specified level of
-     accuracy cite:Agatonovic-Kustrin2000.
+    In general, access to spreadsheets, CSV files, databases or tools to
+    generate the data are not available.
 
-     #+CAPTION: Scheme of network of perceptrons cite:Nielsen2015
-     #+LABEL: fig:ann-perceptrons
-     [[file:images/ann.png]]
+*** Research paper does not clarify steps followed in research
 
-**** SVM
+    Another problem identified in published research is that most of them do not
+    proper document the process followed in the research. Only general guidance
+    is provided but specific parameters involved in the algorithms, models and
+    data normalization are not provided.
 
-     Support vector machines (SVMs) are particular linear classifiers which are
-     based on the margin maximization principle. They perform structural risk
-     minimization, which improves the complexity of the classifier with the aim
-     of achieving excellent generalization performance. The SVM accomplishes the
-     classification task by constructing, in a higher dimensional space, the
-     hyperplane that optimally separates the data into two categories
-     cite:Adankon2009.
+*** Artifact produced in research (model, code) are not available
 
-     #+CAPTION: Unique and optimal hyperplane in a two-dimensional input space based on margin maximization cite:Adankon2009.
-     #+LABEL: fig:ann-perceptrons
-     [[file:images/svm.png]]
+    As of today, tools like Jupyter Notebook allow us to write textual content
+    accompanied with inline executable code, as we saw in the previous section
+    research in astronomy and physics uses this tool to share research results
+    but the same can't be said for AI research. Numerical computing code can be
+    found in GitHub but code related to machine learning training models used
+    in research tends to not be shared.
 
-**** Naive Bayes classifier
+** COMMENT Research hypothesis
+   Esta parte no es necesaria.
+   #+begin_quote
+   Despés de formular un problema, el investigador enuncia la hipótesis, que
+   orientará el desarrollo y permitirá llegar a conclusiones concretas del
+   proyecto que de inicia.
+   #+end_quote
+** General purpose
 
-     #+begin_quote
-     Otros? Logistic Regression, Decision Tree, Random Forests, KNN?
-     #+end_quote
+   #+begin_quote
+   Se indicará el objetivo general y los objetivos particulares.  El objetivo
+   general debe describir en forma completa lo que se desea lograr con el
+   trabajo.
+   #+end_quote
 
-*** Evaluating Artificial Intelligence Algorithms
-**** Precision, Recall, Accuracy
-**** Backtesting
-**** Bagging
-*** Evaluating Investment Strategies
-**** Walk-Forward analysis
+*** OG1
 
-     First, some simple definitions regarding the walk‐forward analysis are
-     in order: In period.This is the chunk of historical data that will be
-     optimized.  Out period. This is the chunk of historical data that will
-     be evaluated using opti- 117 mized results from the adjacent in
-     period.  Fitness factor. This is the criterion used to determine the
-     “best” result, allowing us to select the optimized parameters.
-     Anchored/Unanchored test.This tells us whether or not the in period
-     start date shifts with time, or if the start date is always the same.
+    Provide evidence for the need to promote Open Science practices in Artificial
+    Intelligence research.
 
-**** Monte Carlo simulation and projections (P&L, Drawdown, Ruin risk)
-**** Statistic proves (hypothesis testing, t-student)
-*** Open Science
+*** Old OG1
 
-    Open Science is the movement to make scientific research, data and their
-    dissemination available to any member of an inquiring society, from
-    professionals to citizens with the ultimate aim of making it easier to
-    publish and communicate scientific knowledge. As stated by Pontika, Knoth,
-    Cancellieri & Pearce (2015) it allows the reproduction of research findings,
-    enables transparency in the research methodology, increases the researcher’s
-    societal impact and saves money and time for both researchers and at
-    research institutions.  As of 2015, practices and techniques to be used in a
-    Open Science research weren’t wide spread; an effort by FOSTER (Facilitate
-    Open Science Training for European Research) an European Commission founded
-    project, started by developing an e-learning portal to support the training
-    of a wide range of stakeholders in Open Science and related areas. An open
-    science taxonomy was defined which included nine areas, these are: Open
-    Access, Open Data, Open Reproducible Research, Open Science Definition, Open
-    Science Evaluation, Open Science Guidelines, Open Science Policies, Open
-    Science Projects and Open Science Tools as shown below in figure [[fig:ost]].
+    Explore application of artificial intelligence techniques for investment
+    strategies in emerging financial markets.
 
-    #+CAPTION: Open Science Taxonomy cite:Pontika2015.
-    #+LABEL: fig:ost
-    [[./images/open-science-taxonomy.png]]
+** Concrete purposes
 
-    Note that each of these terms was further divided into sub-topics to
-    better describe and classify the area.  In FOSTER (2015) general Open
-    Science practices for researchers were described, these are as
-    follows: Share protocols openly online and store data in the most open
-    format possible.  Use easily attainable software to facilitate
-    reproduction of results.  Publish preprints and be positive about open
-    peer review.  Cite open access versions of the literature, open data
-    and open code.  Acknowledge contributor roles in publications.
-    Translate research objects in as many languages as possible.  Openly
-    share research hypothesis and proposals, encouraging feedback.
+   #+begin_quote
+   Los objetivos particulares deben ser lo suficiente claros y específicos
+   (deben ser cuantitativos cuando sea necesario) para que sean evaluables al
+   término de la tesis. En esta parte se muestra que el tesista sabe con
+   claridad lo que va a realizar.
+   #+end_quote
 
-    Next we review the most relevant Open Science Areas for this work.
+*** OE1
+
+    Identify tools that facilitate management of artificial intelligence research.
+
+*** OE2
+
+    Explore current usage of open science tools in Software Engineering and
+    Artificial Intelligence.
+
+** Justification
+
+   #+begin_quote
+   Esta parte incluye las razones académicas y prácticas que justifican la
+   realización del proyecto.
+
+   Se pueden indicar las necesidades que se satisfacen, los beneficios que se
+   obtendrán y el impacto socio-económico del trabajo (quién será beneficiado si
+   se soluciona el problema), según sea el caso.
+   #+end_quote
+
+   Stock and futures trading literature emphasizes the importance of capital
+   management, that is, how much of the available capital is to be allocated in
+   a specific market position. Regardless of the probability of success of a
+   single position in the market the management strategy used could result in
+   higher profits over a series of trades.
+
+   However there's a need to provide a procedure for an unbiased comparative
+   over multiple position sizing strategies based in quantitative methods, more
+   over the need to resume the pros and cons over the most known position sizing
+   strategies is needed.
+
+   It is not enough to know what is the optimal position sizing strategy to use,
+   as a complete investment strategy would also consist of a reliable method to
+   detect and exploit market inefficiencies. Currently in the academic
+   literature, procedures for generating machine learning models that are able
+   to predict market trending direction exists. But over the various described
+   methods we need to find which one would be the best to use in addition to the
+   optimal position sizing strategy so that this two components maximize profit.
+
+   In computer science, often research papers offer analysis or improvement over
+   existing algorithms, it is natural that science exploration in this area is
+   reproducible since the improvement over the algorithm is discussed in the
+   article to a great level of detail.
+
+   However, building intuition for learning algorithms used in artificial
+   intelligence is only easy when applied to a low number of features.
+   Complexity of the computations increase as features used in the model
+   increase (e.g. using ANN with a high number of layers, RNNs or other
+   sophisticated algorithms like SVM in higher-dimensional spaces).
+
+   It is necessary to guarantee reproducibility of research since model
+   performance varies depending on the data and parameters used it could be
+   the case that in the reproduction of the study, the final outcome is a
+   different result altogether. Open research reproducible tools can help to
+   overcome this problems.
+
+*** TODO complete the justification
+
+* Background
+  #+begin_quote
+  Aquí se indican cuáles son los antecedentes teóricos y prácticos que se
+  relacionan con el trabajo a desarrollar, para darle mayor veracidad
+  científica.
+  #+end_quote
+** Machine Learning
+
+   Machine Learning is a field of computer science and a subset of artificial
+   intelligence that gives computers the ability to learn without being
+   explicitly programmed cite:Koza1996, it is a discipline that explores the
+   study and construction of algorithms that can learn from and make
+   predictions on data cite:Kohavi1998. Machine learning tasks are typically
+   classified into two broad categories, supervised learning where there is a
+   feedback available to the learning system and unsupervised learning where
+   there is not.
+
+   In the current section we discuss some of the algorithms applied in
+   supervised learning some of which were used in this study for the
+   forecasting of performance in financial markets.
+
+*** TODO Agregar algo sober reinforcement learning?
+
+*** Artificial Neural Networks
+
+    Artificial neural networks (ANNs) are biologically inspired computer
+    programs designed to simulate the way in which the human brain processes
+    information. ANNs gather their knowledge by detecting the patterns and
+    relationships in data and learn (or are trained) through experience, not
+    from programming. An ANN is formed from hundreds of single units,
+    artificial neurons or processing elements, connected with coefficients
+    (weights), which constitute the neural structure and are organised in
+    layers. The power of neural computations comes from connecting neurons in a
+    network. Each processing element has weighted inputs, transfer function and
+    one output. The behavior of a neural network is determined by the transfer
+    functions of its neurons, by the learning rule, and by the architecture
+    itself. The weights are the adjustable parameters and, in that sense, a
+    neural network is a parameterized system. The weighted sum of the inputs
+    constitutes the activation of the neuron. The activation signal is passed
+    through transfer function to produce a single output of the
+    neuron. Transfer function introduces non-linearity to the network. During
+    training, the inter-unit connections are optimized until the error in
+    predictions is minimized and the network reaches the specified level of
+    accuracy cite:Agatonovic-Kustrin2000.
+
+    #+CAPTION: Scheme of network of perceptrons cite:Nielsen2015
+    #+LABEL: fig:ann-perceptrons
+    [[file:images/ann.png]]
+
+*** SVM
+
+    Support vector machines (SVMs) are particular linear classifiers which are
+    based on the margin maximization principle. They perform structural risk
+    minimization, which improves the complexity of the classifier with the aim
+    of achieving excellent generalization performance. The SVM accomplishes the
+    classification task by constructing, in a higher dimensional space, the
+    hyperplane that optimally separates the data into two categories
+    cite:Adankon2009.
+
+    #+CAPTION: Unique and optimal hyperplane in a two-dimensional input space based on margin maximization cite:Adankon2009.
+    #+LABEL: fig:ann-perceptrons
+    [[file:images/svm.png]]
+
+*** Naive Bayes classifier
+
+    #+begin_quote
+    Otros? Logistic Regression, Decision Tree, Random Forests, KNN?
+    #+end_quote
+
+** Evaluating Artificial Intelligence Algorithms
+*** Precision, Recall, Accuracy
+*** Backtesting
+*** Bagging
+** Evaluating Investment Strategies
+*** Walk-Forward analysis
+
+    First, some simple definitions regarding the walk‐forward analysis are
+    in order: In period.This is the chunk of historical data that will be
+    optimized.  Out period. This is the chunk of historical data that will
+    be evaluated using opti- 117 mized results from the adjacent in
+    period.  Fitness factor. This is the criterion used to determine the
+    “best” result, allowing us to select the optimized parameters.
+    Anchored/Unanchored test.This tells us whether or not the in period
+    start date shifts with time, or if the start date is always the same.
+
+*** Monte Carlo simulation and projections (P&L, Drawdown, Ruin risk)
+*** Statistic proves (hypothesis testing, t-student)
+** Open Science
+
+   Open Science is the movement to make scientific research, data and their
+   dissemination available to any member of an inquiring society, from
+   professionals to citizens with the ultimate aim of making it easier to
+   publish and communicate scientific knowledge. As stated by Pontika, Knoth,
+   Cancellieri & Pearce (2015) it allows the reproduction of research findings,
+   enables transparency in the research methodology, increases the researcher’s
+   societal impact and saves money and time for both researchers and at
+   research institutions.  As of 2015, practices and techniques to be used in a
+   Open Science research weren’t wide spread; an effort by FOSTER (Facilitate
+   Open Science Training for European Research) an European Commission founded
+   project, started by developing an e-learning portal to support the training
+   of a wide range of stakeholders in Open Science and related areas. An open
+   science taxonomy was defined which included nine areas, these are: Open
+   Access, Open Data, Open Reproducible Research, Open Science Definition, Open
+   Science Evaluation, Open Science Guidelines, Open Science Policies, Open
+   Science Projects and Open Science Tools as shown below in figure [[fig:ost]].
+
+   #+CAPTION: Open Science Taxonomy cite:Pontika2015.
+   #+LABEL: fig:ost
+   [[./images/open-science-taxonomy.png]]
+
+   Note that each of these terms was further divided into sub-topics to
+   better describe and classify the area.  In FOSTER (2015) general Open
+   Science practices for researchers were described, these are as
+   follows: Share protocols openly online and store data in the most open
+   format possible.  Use easily attainable software to facilitate
+   reproduction of results.  Publish preprints and be positive about open
+   peer review.  Cite open access versions of the literature, open data
+   and open code.  Acknowledge contributor roles in publications.
+   Translate research objects in as many languages as possible.  Openly
+   share research hypothesis and proposals, encouraging feedback.
+
+   Next we review the most relevant Open Science Areas for this work.
 
 **** Open Data
 
@@ -315,7 +452,7 @@
       structure editing help to work with the tree. Tables are easily created
       with a built-in table editor. Plain text URL-like links connect to
       websites, emails, Usenet messages, BBDB entries, and any files related to
-      the projects
+      the projects.
 
       #+CAPTION: Org outline screenshot cite:Dominik2018
       #+LABEL: fig:org-screen
@@ -336,143 +473,6 @@
       #+LABEL: fig:org-source-block
       [[./images/org-source-block.png]]
 
-** Formulation of the problem
-
-   #+begin_quote
-   Debe exponer el problema que da origen a su trabajo. Se debe incluir:
-
-   - Dónde emerge el problema o antecedente.
-   - La definición del problema. En esta parte se describirá el problema central
-     de la tesis y se indicará la manera general cómo se resolverá el mismo, así
-     como los métodos y/o técnicas a Representa un elemento fundamental en el
-     proceso de la investigación.
-   #+end_quote
-
-   In this work we explore the state of research reproducibility in artificial
-   intelligence. In specific we've identified the following problems:
-
-*** Open Science practices not fully adopted
-
-    This problem consist in the lack of application of open science practices to
-    the artificial intelligence & machine learning research. Several papers
-    publish models reporting good performance but data or a note book with the
-    code is not available, thus making the reproduction of research harder.
-
-*** Access to data used in research
-
-    This problem is associated to the fact that many of research papers
-    published do not provide easy access to data or in general the data used to
-    train the predictive or classification models.
-
-    In general, access to spreadsheets, CSV files, databases or tools to
-    generate the data are not available.
-
-*** Research paper does not clarify steps followed in research
-
-    Another problem identified in published research is that most of them do not
-    proper document the process followed in the research. Only general guidance
-    is provided but specific parameters involved in the algorithms, models and
-    data normalization are not provided.
-
-*** Artifact produced in research (model, code) are not available
-
-    As of today, tools like Jupyter Notebook allow us to write textual content
-    accompanied with inline executable code, as we saw in the previous section
-    research in astronomy and physics uses this tool to share research results
-    but the same can't be said for AI research. Numerical computing code can be
-    found in GitHub but code related to machine learning training models used
-    in research tends to not be shared.
-
-** Research hypothesis
-   #+begin_quote
-   Despés de formular un problema, el investigador enuncia la hipótesis, que
-   orientará el desarrollo y permitirá llegar a conclusiones concretas del
-   proyecto que de inicia.
-   #+end_quote
-** General purpose
-
-   #+begin_quote
-   Se indicará el objetivo general y los objetivos particulares.  El objetivo
-   general debe describir en forma completa lo que se desea lograr con el
-   trabajo.
-   #+end_quote
-
-*** OG1
-
-    Provide evidence for the need to promote Open Science practices in Artificial
-    Intelligence research.
-
-*** Old OG1
-
-    Explore application of artificial intelligence techniques for investment
-    strategies in emerging financial markets.
-
-** Concrete purposes
-
-   #+begin_quote
-   Los objetivos particulares deben ser lo suficiente claros y específicos
-   (deben ser cuantitativos cuando sea necesario) para que sean evaluables al
-   término de la tesis. En esta parte se muestra que el tesista sabe con
-   claridad lo que va a realizar.
-   #+end_quote
-
-*** OE1
-
-    Identify tools that facilitate management of artificial intelligence research.
-
-*** OE2
-
-    Explore current usage of open science tools in Software Engineering and
-    Artificial Intelligence.
-
-** Justification
-
-   #+begin_quote
-   Esta parte incluye las razones académicas y prácticas que justifican la
-   realización del proyecto.
-
-   Se pueden indicar las necesidades que se satisfacen, los beneficios que se
-   obtendrán y el impacto socio-económico del trabajo (quién será beneficiado si
-   se soluciona el problema), según sea el caso.
-   #+end_quote
-
-   Stock and futures trading literature emphasizes the importance of capital
-   management, that is, how much of the available capital is to be allocated in
-   a specific market position. Regardless of the probability of success of a
-   single position in the market the management strategy used could result in
-   higher profits over a series of trades.
-
-   However there's a need to provide a procedure for an unbiased comparative
-   over multiple position sizing strategies based in quantitative methods, more
-   over the need to resume the pros and cons over the most known position sizing
-   strategies is needed.
-
-   It is not enough to know what is the optimal position sizing strategy to use,
-   as a complete investment strategy would also consist of a reliable method to
-   detect and exploit market inefficiencies. Currently in the academic
-   literature, procedures for generating machine learning models that are able
-   to predict market trending direction exists. But over the various described
-   methods we need to find which one would be the best to use in addition to the
-   optimal position sizing strategy so that this two components maximize profit.
-
-   In computer science, often research papers offer analysis or improvement over
-   existing algorithms, it is natural that science exploration in this area is
-   reproducible since the improvement over the algorithm is discussed in the
-   article to a great level of detail.
-
-   However, building intuition for learning algorithms used in artificial
-   intelligence is only easy when applied to a low number of features.
-   Complexity of the computations increase as features used in the model
-   increase (e.g. using ANN with a high number of layers, RNNs or other
-   sophisticated algorithms like SVM in higher-dimensional spaces).
-
-   It is necessary to guarantee reproducibility of research since model
-   performance varies depending on the data and parameters used it could be
-   the case that in the reproduction of the study, the final outcome is a
-   different result altogether. Open research reproducible tools can help to
-   overcome this problems.
-
-*** TODO complete the justification
 
 * State of the art
   #+begin_quote
@@ -484,18 +484,18 @@
 
 ** Related Work
    #+begin_quote
-   Esta parte incluye la revisión (bibliográfica o de campo) de las soluciones
-   que se han desarrollado con anterioridad y la efectividad de las mismas, así
+   Esta parte incluye la revisión (bibliográfica o de campo) de las soluciones
+   que se han desarrollado con anterioridad y la efectividad de las mismas, así
    como productos comerciales y/o experimentales similares al que se va a
    proponer en el trabajo de tesis.
 
-   Por cada trabajo relacionado se espera una redacción máxima de media cuartilla.
+   Por cada trabajo relacionado se espera una redacción máxima de media cuartilla.
    #+end_quote
 
 ** Comparative analysis
 
    #+begin_quote
-   Discusión y análisis a profundidad de los trabajos que tienen mayor relación con
+   Discusión y análisis a profundidad de los trabajos que tienen mayor relación con
    el problema a resolver, con la finalidad de justificar el desarrollo que se
    pretende.
    #+end_quote
