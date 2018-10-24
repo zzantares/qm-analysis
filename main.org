@@ -327,7 +327,7 @@
    societal impact and saves money and time for both researchers and at
    research institutions.  As of 2015, practices and techniques to be used in a
    Open Science research weren’t wide spread; an effort by FOSTER (Facilitate
-   Open Science Training for European Research) an European Commission founded
+   Open Science Training for European Research) an European Commission funded
    project, started by developing an e-learning portal to support the training
    of a wide range of stakeholders in Open Science and related areas. An open
    science taxonomy was defined which included nine areas, these are: Open
@@ -405,6 +405,7 @@
      fields from geology to genetics to computer science have used notebooks as
      supporting material.
 
+
 ***** Jupyter Notebook
 
       The Jupyter notebook is an open-source, browser-based tool functioning as
@@ -437,6 +438,7 @@
       references, making it practical to cite them in other publications
       cite:Kluyver2016.
 
+***** Apache Zeppelin
 ***** Org mode
 
       Org mode is a tool available for the Emacs text editor that in the same
