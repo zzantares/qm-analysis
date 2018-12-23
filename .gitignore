@@ -1,6 +1,7 @@
 *.tex
 *.pdf
 *.lof
+*.bbl
 notes.org
 papers/
 resumen*

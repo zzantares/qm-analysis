@@ -90,7 +90,7 @@
   business are growing.
 
 ** TODO Importancia de desarrollo y evaluaciíon de estrategias para predecir mercados
-** Formulation of the problem
+** COMMENT Formulation of the problem
 
    #+begin_quote
    Debe exponer el problema que da origen a su trabajo. Se debe incluir:
@@ -101,6 +101,9 @@
      como los métodos y/o técnicas a Representa un elemento fundamental en el
      proceso de la investigación.
    #+end_quote
+
+   decisions based in gut feeling? highly subjective patterns? unquantifiable
+   perceptions?
 
    In this work we explore the state of research reproducibility in artificial
    intelligence. In specific we've identified the following problems:
@@ -476,32 +479,6 @@
       [[./images/org-source-block.png]]
 
 
-* State of the art
-  #+begin_quote
-  Base teórica sobre la que se sustenta la tesis, o la cual se rebate en el
-  desarrollo posterior en el escrito, y que forma parte introductoria del mismo.
-  Este capítulo es fundamental para explicar las aportaciones al conocimiento
-  que realiza la tesis al estado del conocimiento actual
-  #+end_quote
-
-** Related Work
-   #+begin_quote
-   Esta parte incluye la revisión (bibliográfica o de campo) de las soluciones
-   que se han desarrollado con anterioridad y la efectividad de las mismas, así
-   como productos comerciales y/o experimentales similares al que se va a
-   proponer en el trabajo de tesis.
-
-   Por cada trabajo relacionado se espera una redacción máxima de media cuartilla.
-   #+end_quote
-
-** Comparative analysis
-
-   #+begin_quote
-   Discusión y análisis a profundidad de los trabajos que tienen mayor relación con
-   el problema a resolver, con la finalidad de justificar el desarrollo que se
-   pretende.
-   #+end_quote
-
 * Research Methodology
   #+begin_quote
   En este capítulo se presenta el desarrollo del trabajo siguiendo rigurosamente
@@ -518,6 +495,9 @@
   Será necesario precisar las actividades a desarrollar en otras instituciones,
   si se diera el caso.
   #+end_quote
+
+  Our goal is to apply Monte Carlo simulation to trading systems, where the
+  process being studied is the sequence of closed trades or daily equity.
 
 ** For the comparison of position sizing strategies
    Now we will look to the procedure defined for the comparative of position
@@ -675,7 +655,7 @@
 
 ** Apendice
    #+begin_quote
-   Raw data, instalation recipes, how to access db.
+   Raw data, installation recipes, how to access db.
 
    Es una sección, también ubicada generalmente al final del texto pero cuya
    función es importante para la comprensión del texto principal.
