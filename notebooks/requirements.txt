@@ -1,7 +1,7 @@
 jedi==0.10.2
 Keras==2.1.1
 matplotlib==2.0.2
-numpy==1.13.1
+numpy==1.22.0
 pandas==0.20.3
 Quandl==3.2.0
 requests==2.20.0
